@@ -12,11 +12,4 @@ class CreatePatients < ActiveRecord::Migration[7.0]
   def down
     drop_table :patients
   end
-
-  # def change
-  #   create_table :patients do |t|
-  #
-  #     t.timestamps
-  #   end
-  # end
 end
