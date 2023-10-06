@@ -170,6 +170,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  minitest
   pg
   puma (~> 5.0)
   rack-cors

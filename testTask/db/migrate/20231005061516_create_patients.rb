@@ -4,7 +4,7 @@ class CreatePatients < ActiveRecord::Migration[7.0]
       t.string :full_name, null: false
       t.string :email, null: false
       t.string :phone_number, null: false
-      t.datetime :birth_date, null: false
+      t.date :birth_date, null: false
       t.timestamps
     end
   end
