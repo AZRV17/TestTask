@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      get 'patients/:patient_id/recommendations', to: 'patients#get_recommendations'
+      resources :patients
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+      post '/consultation_requests', to: 'consultation_requests#create'
+      resources :consultation_requests
+
+      post '/consultation_requests/:id/recommendations', to: 'consultation_requests#create_recommendation'
+      resources :recommendations
+    end
+  end
 end
