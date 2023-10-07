@@ -4,8 +4,13 @@ class Api::V1::RecommendationsController < ApplicationController
 
   def create
     recommendation = Recommendation.new(consultation_request_id: params[:id], text: get_recommendation)
+    consultation_request = ConsultationRequest.find(params[:id])
+    patient = Patient.find(consultation_request.patient_id)
 
     if recommendation.save
+      RecommendationMailer.with(recommendation: recommendation, patient_email: patient.email)
+                          .new_recommendation_mailer.deliver_later
+
       render json: { message: 'Recommendation created successfully' }, status: :created
     else
       render json: { errors: recommendation.errors.full_messages }, status: :bad_request
