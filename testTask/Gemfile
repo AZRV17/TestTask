@@ -48,4 +48,3 @@ end
 
 gem "rack-cors"
 gem "pg"
-gem "rest-client"

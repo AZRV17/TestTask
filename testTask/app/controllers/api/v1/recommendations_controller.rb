@@ -21,7 +21,7 @@ class Api::V1::RecommendationsController < ApplicationController
     consultation_requests = ConsultationRequest.where(patient_id: params[:patient_id])
     recommendations = Recommendation.where(consultation_request_id: consultation_requests.map(&:id))
 
-    render json: { recommendations: recommendations }
+    render json: { recommendations: recommendations }, status: :ok
   end
 
   private
