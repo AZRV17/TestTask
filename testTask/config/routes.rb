@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       get 'patients/:patient_id/recommendations', to: 'recommendations#get'
       resources :patients
 
-      post '/consultation_requests/:id/recommendations', to: 'recommendations#create'
+      post '/consultation_requests/:request_id/recommendations', to: 'recommendations#create'
       resources :recommendations
 
       post '/consultation_requests', to: 'consultation_requests#create'

@@ -3,7 +3,7 @@ class Api::V1::RecommendationsController < ApplicationController
   require 'net/http'
 
   def create
-    recommendation = Recommendation.new(consultation_request_id: params[:id], text: get_recommendation)
+    recommendation = Recommendation.new(consultation_request_id: params[:request_id], text: get_recommendation)
     consultation_request = ConsultationRequest.find(params[:id])
     patient = Patient.find(consultation_request.patient_id)
 
