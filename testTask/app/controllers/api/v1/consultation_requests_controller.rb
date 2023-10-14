@@ -8,18 +8,6 @@ class Api::V1::ConsultationRequestsController < ApplicationController
     end
   end
 
-
-
-  def create_recommendation
-    recommendation = Recommendation.new(consultation_request_id: params[:id], text: get_recommendation)
-
-    if recommendation.save
-      render json: { message: 'Recommendation created successfully' }, status: :created
-    else
-      render json: { errors: recommendation.errors.full_messages }, status: :bad_request
-    end
-  end
-
   private
 
   def consultation_request_params
